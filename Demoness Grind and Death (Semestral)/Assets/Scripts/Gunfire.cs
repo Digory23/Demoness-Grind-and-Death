@@ -20,6 +20,7 @@ public class Gunfire : MonoBehaviour
         {
             gunsound = GetComponent<AudioSource>();
             gunsound.Play();
+            //GetComponent<Animation>().Play("GunAnimation");
         }
     }
 }
