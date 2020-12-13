@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: efae228f4ce0e014f9c2d042dfb8cce9
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Demoness
+  fontNames:
+  - Demoness
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: dbcabdc6eee74804981c11a037ac700a, type: 3}
+  - {fileID: 12800000, guid: 1237881d8a9125b4ba407de28e5b6011, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

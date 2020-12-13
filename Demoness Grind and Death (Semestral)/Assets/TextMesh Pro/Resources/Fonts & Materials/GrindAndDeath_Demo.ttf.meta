@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: e920e897b4080bd4083e2adcc9af6628
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: GrindAndDeath_Demo
+  fontNames:
+  - GrindAndDeath_Demo
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d50c7641b23c57a4d8a5a3e9edba3621, type: 3}
+  - {fileID: 12800000, guid: a21868ced61875b4b94b26d66d18af98, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
