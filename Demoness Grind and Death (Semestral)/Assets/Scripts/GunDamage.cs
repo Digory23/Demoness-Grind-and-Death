@@ -21,6 +21,10 @@ public class GunDamage : MonoBehaviour
             if(Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward), out shot, Mathf.Infinity))
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * shot.distance, Color.yellow);
+                if(targetDistance <= allowedRange)
+                {
+                    shot.transform.SendMessageUpwards("HitPoint", damageAmount);
+                }
             }
             else
             {
