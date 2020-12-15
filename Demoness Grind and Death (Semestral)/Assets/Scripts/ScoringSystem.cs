@@ -15,6 +15,7 @@ public class ScoringSystem : MonoBehaviour
 
         if (objetosColect >= 5)
         {
+            PlayerHealth.playerHealth = 100;
             SceneManager.LoadScene("Nivel Completado 1"); //codigo para pasar a otra escena
             objetosColect = 0;
         } 

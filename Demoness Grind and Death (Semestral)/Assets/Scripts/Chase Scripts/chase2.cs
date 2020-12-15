@@ -21,7 +21,7 @@ public class chase2 : MonoBehaviour
         {
             Vector3 direction = player.position - this.transform.position;
             float angle = Vector3.Angle(direction, this.transform.forward);
-            if (Vector3.Distance(player.position, this.transform.position) < 12 && angle < 120)
+            if (Vector3.Distance(player.position, this.transform.position) < 12 && angle < 80)
             {
 
                 direction.y = 0;

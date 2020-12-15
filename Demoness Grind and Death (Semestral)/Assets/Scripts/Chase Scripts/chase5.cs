@@ -19,7 +19,7 @@ public class chase5 : MonoBehaviour
     {
         Vector3 direction = player.position - this.transform.position;
         float angle = Vector3.Angle(direction, this.transform.forward);
-        if (Vector3.Distance(player.position, this.transform.position) < 12 && angle < 120)
+        if (Vector3.Distance(player.position, this.transform.position) < 12 && angle < 80)
         {
 
             direction.y = 0;
@@ -51,6 +51,6 @@ public class chase5 : MonoBehaviour
     public void Damage()
     {
         pHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        pHealth.HealthLoss();
+        pHealth.Vida();
     }
 }
