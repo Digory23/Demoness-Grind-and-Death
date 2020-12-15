@@ -14,22 +14,26 @@ public class GunDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit shot;
 
-        if (Input.GetButton("Fire1"))
-        {
-            if(Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward), out shot, Mathf.Infinity))
+        if(!MenuPausa.isPaused)
+        { 
+            RaycastHit shot;
+            if (Input.GetButton("Fire1"))
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * shot.distance, Color.yellow);
-                if(targetDistance <= allowedRange)
+                if(Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward), out shot, Mathf.Infinity))
                 {
-                    shot.transform.SendMessageUpwards("HitPoint", damageAmount);
+                    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * shot.distance, Color.yellow);
+                    if(targetDistance <= allowedRange)
+                    {
+                        shot.transform.SendMessageUpwards("HitPoint", damageAmount);
+                    }
+                }
+                else
+                {
+                    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.blue);
                 }
             }
-            else
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.blue);
-            }
         }
+
     }
 }
