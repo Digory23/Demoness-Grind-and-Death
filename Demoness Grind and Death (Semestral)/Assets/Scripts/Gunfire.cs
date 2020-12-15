@@ -8,7 +8,7 @@ public class Gunfire : MonoBehaviour
     AudioSource gunsound;
 
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         
     }
@@ -22,5 +22,12 @@ public class Gunfire : MonoBehaviour
             gunsound.Play();
             //GetComponent<Animation>().Play("GunAnimation");
         }
+    }*/
+
+
+    public void Shooting()
+    {
+        gunsound = GetComponent<AudioSource>();
+        gunsound.Play();
     }
 }

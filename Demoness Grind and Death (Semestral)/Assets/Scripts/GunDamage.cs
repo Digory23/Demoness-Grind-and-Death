@@ -5,31 +5,61 @@ using UnityEngine;
 public class GunDamage : MonoBehaviour
 {
 
-    public float damageAmount = 5f;
-    public float targetDistance;
-    public float allowedRange = 300f;
-    // Start is called before the first frame update
-    
+    AudioSource gunsound;
+    RaycastHit hit;
 
-    // Update is called once per frame
+    public float damageEnemy = 10f;
+
+    //[SerializedField]
+    public Transform shootPoint;
+
+    //[SerializedField]
+    public float rateOfFire;
+    float nextFire = 0;
+
+    //[SerializedField]
+    public float weaponRange; 
+
     void Update()
     {
-        RaycastHit shot;
-
-        if (Input.GetButton("Fire1"))
+        if(Input.GetButton("Fire1"))
         {
-            if(Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward), out shot, Mathf.Infinity))
+            Shoot();
+        }
+
+    }
+
+    void Shoot()
+    {
+        if(Time.time > nextFire)
+        {
+            nextFire = Time.time + rateOfFire;
+            
+            ShootingSound();
+
+
+
+            if (Physics.Raycast(shootPoint.position, shootPoint.forward, out hit, weaponRange))
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * shot.distance, Color.yellow);
-                if(targetDistance <= allowedRange)
+                if(hit.transform.tag == "Enemy")
                 {
-                    shot.transform.SendMessageUpwards("HitPoint", damageAmount);
+                    Debug.Log("Hit enemy");
+                    EnemyHealth enemyHealthScript = hit.transform.GetComponent<EnemyHealth>();
+                    enemyHealthScript.DeductHealth(damageEnemy);
+                }
+                else
+                {
+                    Debug.Log("Hit anything");
                 }
             }
-            else
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.blue);
-            }
+
         }
     }
+
+    void ShootingSound()
+    {
+        gunsound = GetComponent<AudioSource>();
+        gunsound.Play();
+    }
+
 }
