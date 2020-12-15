@@ -22,38 +22,46 @@ public class GunDamage : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButton("Fire1"))
+        if (!MenuPausa.isPaused)
         {
-            Shoot();
+            if(Input.GetButton("Fire1"))
+            {
+                Shoot();
+            }
         }
+        
 
     }
 
     void Shoot()
     {
-        if(Time.time > nextFire)
+        if (!MenuPausa.isPaused)
         {
-            nextFire = Time.time + rateOfFire;
+            if (Time.time > nextFire)
+                    {
+                        nextFire = Time.time + rateOfFire;
             
-            ShootingSound();
+                        ShootingSound();
 
 
 
-            if (Physics.Raycast(shootPoint.position, shootPoint.forward, out hit, weaponRange))
-            {
-                if(hit.transform.tag == "Enemy")
-                {
-                    Debug.Log("Hit enemy");
-                    EnemyHealth enemyHealthScript = hit.transform.GetComponent<EnemyHealth>();
-                    enemyHealthScript.DeductHealth(damageEnemy);
-                }
-                else
-                {
-                    Debug.Log("Hit anything");
-                }
-            }
+                        if (Physics.Raycast(shootPoint.position, shootPoint.forward, out hit, weaponRange))
+                        {
+                            if(hit.transform.tag == "Enemy")
+                            {
+                                Debug.Log("Hit enemy");
+                                EnemyHealth enemyHealthScript = hit.transform.GetComponent<EnemyHealth>();
+                                enemyHealthScript.DeductHealth(damageEnemy);
+                            }
+                            else
+                            {
+                                Debug.Log("Hit anything");
+                            }
+                        }
 
+                    }
         }
+            
     }
 
     void ShootingSound()
