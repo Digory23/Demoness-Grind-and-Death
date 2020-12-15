@@ -1,23 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float playerHealth = 100f;
+    public static int playerHealth = 100;
+    public GameObject vidaText; 
 
-    public void HealthLoss()
+    public void Update()
     {
-        playerHealth -= 5;
-        Debug.Log("Player damage");
-        Debug.Log(playerHealth);
+        vidaText.GetComponent<Text>().text = playerHealth + " ";
 
         if (playerHealth <= 0) { PlayerDead(); }
     }
 
     void PlayerDead()
     {
-
+        SceneManager.LoadScene("Game Over");
+        playerHealth = 100;
         Debug.Log("C muere");
+    }
+
+    public void Vida()
+    {
+        playerHealth -= 5;
+        Debug.Log("Player damage");
+        Debug.Log(playerHealth);
     }
 }
