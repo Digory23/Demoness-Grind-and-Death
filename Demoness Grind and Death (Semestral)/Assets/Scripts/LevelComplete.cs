@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour
 {
+    public GameObject nivelComplet;
+
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
     public void LoadScene()
     {
