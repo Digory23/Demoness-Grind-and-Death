@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GunDamage : MonoBehaviour
 {
-
+    
     AudioSource gunsound;
     RaycastHit hit;
+    Gunfire gFire;
 
     public float damageEnemy = 10f;
 
@@ -19,6 +20,8 @@ public class GunDamage : MonoBehaviour
 
     //[SerializedField]
     public float weaponRange; 
+
+    
 
     void Update()
     {
@@ -42,10 +45,11 @@ public class GunDamage : MonoBehaviour
                         nextFire = Time.time + rateOfFire;
             
                         ShootingSound();
+                        ShootingAnimation();
 
 
 
-                        if (Physics.Raycast(shootPoint.position, shootPoint.forward, out hit, weaponRange))
+                if (Physics.Raycast(shootPoint.position, shootPoint.forward, out hit, weaponRange))
                         {
                             if(hit.transform.tag == "Enemy")
                             {
@@ -62,6 +66,12 @@ public class GunDamage : MonoBehaviour
                     }
         }
             
+    }
+
+    void ShootingAnimation()
+    {
+        gFire = GameObject.FindGameObjectWithTag("Gun").GetComponent<Gunfire>();
+        gFire.Shooting();
     }
 
     void ShootingSound()

@@ -4,8 +4,23 @@ using UnityEngine;
 
 public class Gunfire : MonoBehaviour
 {
+    Animator m_animator;
+    
 
-    AudioSource gunsound;
+
+    void Start()
+    {
+        m_animator = GetComponent<Animator>();
+    }
+
+
+    public void Shooting()
+    {
+        m_animator.SetTrigger("Shooting");
+    }
+
+
+    //AudioSource gunsound;
 
     // Start is called before the first frame update
     /*void Start()
@@ -25,9 +40,5 @@ public class Gunfire : MonoBehaviour
     }*/
 
 
-    public void Shooting()
-    {
-        gunsound = GetComponent<AudioSource>();
-        gunsound.Play();
-    }
+
 }
