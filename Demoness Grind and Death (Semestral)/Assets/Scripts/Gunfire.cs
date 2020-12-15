@@ -8,7 +8,7 @@ public class Gunfire : MonoBehaviour
     AudioSource gunsound;
 
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         
     }
@@ -16,14 +16,18 @@ public class Gunfire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!MenuPausa.isPaused)
-        {
-            if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             gunsound = GetComponent<AudioSource>();
             gunsound.Play();
             //GetComponent<Animation>().Play("GunAnimation");
         }
-        }
+    }*/
+
+
+    public void Shooting()
+    {
+        gunsound = GetComponent<AudioSource>();
+        gunsound.Play();
     }
 }

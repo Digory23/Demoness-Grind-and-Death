@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class chase : MonoBehaviour
+public class chase4 : MonoBehaviour
 {
+    PlayerHealth pHealth;
 
     public Transform player;
-    static Animator anim; 
+    static Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>(); 
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -18,17 +19,17 @@ public class chase : MonoBehaviour
     {
         Vector3 direction = player.position - this.transform.position;
         float angle = Vector3.Angle(direction, this.transform.forward);
-        if (Vector3.Distance(player.position, this.transform.position) < 10 && angle < 50) 
+        if (Vector3.Distance(player.position, this.transform.position) < 12 && angle < 120)
         {
-            
+
             direction.y = 0;
 
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.3f);
 
             anim.SetBool("isIdle", false);
-             if(direction.magnitude > 3)
+            if (direction.magnitude > 3)
             {
-                this.transform.Translate(0, 0, 0.015f);
+                this.transform.Translate(0, 0, 0.021f);
                 anim.SetBool("isWalking", true);
                 anim.SetBool("isAttacking", false);
             }
@@ -45,5 +46,11 @@ public class chase : MonoBehaviour
             anim.SetBool("isAttacking", false);
         }
 
+    }
+
+    public void Damage()
+    {
+        pHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        pHealth.HealthLoss();
     }
 }
