@@ -29,7 +29,7 @@ public class chase5 : MonoBehaviour
             anim.SetBool("isIdle", false);
             if (direction.magnitude > 3)
             {
-                this.transform.Translate(0, 0, 0.021f);
+                this.transform.Translate(0, 0, 0.81f);
                 anim.SetBool("isWalking", true);
                 anim.SetBool("isAttacking", false);
             }
