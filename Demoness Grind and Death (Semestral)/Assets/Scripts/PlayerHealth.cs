@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     {
         SceneManager.LoadScene("Game Over");
         playerHealth = 100;
+        ScoringSystem.objetosColect = 0;
         Debug.Log("C muere");
     }
 

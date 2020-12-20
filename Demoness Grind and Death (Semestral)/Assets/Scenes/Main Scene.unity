@@ -17123,7 +17123,7 @@ MonoBehaviour:
   damageEnemy: 10
   shootPoint: {fileID: 1368471240}
   rateOfFire: 0.7
-  weaponRange: 15
+  weaponRange: 14
 --- !u!82 &1368471242
 AudioSource:
   m_ObjectHideFlags: 0

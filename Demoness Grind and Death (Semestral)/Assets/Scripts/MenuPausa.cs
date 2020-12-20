@@ -48,6 +48,8 @@ public class MenuPausa : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
+        PlayerHealth.playerHealth = 100;
+        ScoringSystem.objetosColect = 0;
     }
 
     public void QuitGame()
